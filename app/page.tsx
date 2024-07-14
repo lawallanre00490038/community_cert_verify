@@ -22,7 +22,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen m-auto items-center justify-center">
       <div className="bg-white rounded-xl">
-        <h1 className="text-2xl text-center p-6 font-semibold uppercase">Generate your Award</h1>
+        <h1 className="text-2xl text-center p-6 font-semibold uppercase">DSN Certificate Verification</h1>
+        <span className="text-center text-sm p-6">Enter your certificate ID and email to verify your certificate</span>
         <form className="flex flex-col p-6" action={HandleGetStudentsCertificateForm}>
           <div className="mb-8 w-[350px] lg:w-[500px]">
             <label htmlFor="certificateId" className="block text-sm font-bold text-gray-700">
