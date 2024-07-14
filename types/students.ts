@@ -23,6 +23,7 @@ export type StudentsData = {
     studentID: string;
     name: string;
     email: string;
+    link: string;
     certificationName: string;
     issuedBy: string;
     createdAt: Date | null;
