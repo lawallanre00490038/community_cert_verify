@@ -7,9 +7,11 @@ const page = ({ params }: { params: { slug: string[] } }) => {
   
   return (
     <div>
-      <h1>
-        The students page
-      </h1>
+      <div className='flex justify-center items-center flex-col h-screen'>
+        <h1 className='text-2xl'>
+          welcome {decodedParams[1]}
+        </h1>
+    </div>
     </div>
   )
 }

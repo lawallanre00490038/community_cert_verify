@@ -2,7 +2,11 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div className='flex justify-center items-center h-screen'>
+        <h1 className='text-2xl'>
+            You do have a certificate. Contact the course Admin
+        </h1>
+    </div>
   )
 }
 
