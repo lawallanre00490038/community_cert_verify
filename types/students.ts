@@ -16,3 +16,15 @@ export type StudentsData = {
     role:           string        
     password:       string
   }
+
+  export type StudentCertificatedetails = {
+    id: string;
+    certificateID: string;
+    studentID: string;
+    name: string;
+    email: string;
+    certificationName: string;
+    issuedBy: string;
+    createdAt: Date | null;
+    updatedAt: Date | null;
+  } | null;

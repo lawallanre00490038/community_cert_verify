@@ -2,10 +2,20 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {getCertificates} from "@/lib/manipulateTables" 
+import {getCertificates} from "@/lib/manipulateUserandCertificateTables" 
 import { StudentsData } from "@/types/students"
 import { revalidatePath } from 'next/cache';
 import toast, { Toaster } from 'react-hot-toast';
+import { Button } from './ui/button';
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
 
 const CertificateTable = () => {
   const [certificates, setCertificates] = useState<StudentsData[]>([]);
@@ -115,11 +125,11 @@ const CertificateTable = () => {
 
 
   return (
-    <div>
+    <div className='w-[100%]'>
       {error && <p className='p-2'>{error}</p>}
       <input
         type="text"
-        className='p-2 mb-2 rounded-xl border w-1/3'
+        className='p-2 mb-2 rounded-xl border w-[100%] md:w-2/3 lg:w-1/3'
         value={filter}
         onChange={e => {
           setFilter(e.target.value);
@@ -128,35 +138,35 @@ const CertificateTable = () => {
 
         placeholder="Filter by name, email, etc..."
       />
-      <table>
-        <thead>
-          <tr>
-            <th onClick={() => toggleSort('certificateID')}>Certificate ID</th>
-            <th onClick={() => toggleSort('studentID')}>Student ID</th>
-            <th onClick={() => toggleSort('name')}>Name</th>
-            <th onClick={() => toggleSort('email')}>Email</th>
-            <th onClick={() => toggleSort('certificationName')}>Certification Name</th>
-            <th onClick={() => toggleSort('issuedBy')}>Issued By</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {loading ? <tr><td colSpan={7}>Loading...</td></tr> : certificatesToDisplayAfterFilter?.map(certificate => (
-            <tr key={certificate.id}>
-              <td>{certificate.certificateID}</td>
-              <td>{certificate.studentID}</td>
-              <td>{certificate.name}</td>
-              <td>{certificate.email}</td>
-              <td>{certificate.certificationName}</td>
-              <td>{certificate.issuedBy}</td>
-              <td>
-                <button onClick={() => handleDelete(certificate.id)}>Delete</button>
-                <button onClick={() => handleUpdate(certificate.id, { ...certificate, name: 'Updated Name' })}>Update</button>
-              </td>
-            </tr>
+      <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHead onClick={() => toggleSort('certificateID')}>Certificate ID</TableHead>
+            <TableHead onClick={() => toggleSort('studentID')}>Student ID</TableHead>
+            <TableHead onClick={() => toggleSort('name')}>Name</TableHead>
+            <TableHead onClick={() => toggleSort('email')}>Email</TableHead>
+            <TableHead onClick={() => toggleSort('certificationName')}>Certification Name</TableHead>
+            <TableHead onClick={() => toggleSort('issuedBy')}>Issued By</TableHead>
+            <TableHead className='border bg-gray-100 text-center'>Actions</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {loading ? <TableRow><TableCell colSpan={7}>Loading...</TableCell></TableRow> : certificatesToDisplayAfterFilter?.map(certificate => (
+            <TableRow key={certificate.id}>
+              <TableCell>{certificate.certificateID}</TableCell>
+              <TableCell>{certificate.studentID}</TableCell>
+              <TableCell>{certificate.name}</TableCell>
+              <TableCell>{certificate.email}</TableCell>
+              <TableCell>{certificate.certificationName}</TableCell>
+              <TableCell>{certificate.issuedBy}</TableCell>
+              <TableCell className='space-y-2 md:space-x-4 text-center border-2 flex items-center justify-center flex-col md:flex-row'>
+                <Button onClick={() => handleDelete(certificate.id)} className='bg-gray-200 rounded-xl'>Delete</Button>
+                <Button onClick={() => handleUpdate(certificate.id, { ...certificate, name: 'Updated Name' })} className='bg-gray-200 rounded-xl'>Update</Button>
+              </TableCell>
+            </TableRow>
           ))}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
       <div className='my-4 flex space-x-4 items-center'>
         <button disabled={page <= 1} onClick={() => {paginationNavigation("backward")}} className='border p-2 cursor-pointer hover:bg-slate-100'>Previous</button>
         <span> Page {page} of {totalPages} </span>

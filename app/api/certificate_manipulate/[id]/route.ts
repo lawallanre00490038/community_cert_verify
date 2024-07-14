@@ -1,6 +1,6 @@
 import { prisma } from "@/db/client"
 import { NextRequest, NextResponse } from "next/server";
-import { deleteCertificate, updateCertificate } from "@/lib/manipulateTables"
+import { deleteCertificate, updateCertificate } from "@/lib/manipulateUserandCertificateTables"
 import { revalidatePath } from "next/cache";
 import layout from "@/app/(adminPages)/layout";
 

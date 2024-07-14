@@ -2,9 +2,19 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {getAdminUsers, DeleteAdminUsers} from "@/lib/manipulateTables" 
+import {getAdminUsers, DeleteAdminUsers} from "@/lib/manipulateUserandCertificateTables" 
 import { User } from "@/types/students"
 import { Button } from './ui/button';
+
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
 
 const CertificateTable = () => {
   const [admins, setAdmins] = useState<User[]>([]);
@@ -112,7 +122,7 @@ const CertificateTable = () => {
 
 
   return (
-    <div>
+    <div className='w-[100%] md:px-4'>
       {error && <p className='p-2'>{error}</p>}
       <input
         type="text"
@@ -125,31 +135,32 @@ const CertificateTable = () => {
 
         placeholder="Filter by name, email, etc..."
       />
-      <table>
-        <thead>
-          <tr>
-            <th onClick={() => toggleSort('id')}>Id</th>
-            <th onClick={() => toggleSort('email')}>Email</th>
-            <th onClick={() => toggleSort('name')}>Name</th>
-            <th onClick={() => toggleSort('role')}>Role</th>
-            <th className='border bg-gray-100'>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {loading ? <tr><td colSpan={7}>Loading...</td></tr> : AdminsToDisplayAfterFilter?.map(admin => (
-            <tr key={admin.id}>
-              <td>{admin.id}</td>
-              <td>{admin.email}</td>
-              <td>{admin.name}</td>
-              <td>{admin.role}</td>
-              <td className='md:space-x-4'>
+      <Table className=''>
+        <TableCaption>A list of all available Admins</TableCaption>
+        <TableHeader>
+          <TableRow>
+            <TableHead onClick={() => toggleSort('id')}>Id</TableHead>
+            <TableHead onClick={() => toggleSort('email')}>Email</TableHead>
+            <TableHead onClick={() => toggleSort('name')}>Name</TableHead>
+            <TableHead onClick={() => toggleSort('role')}>Role</TableHead>
+            <TableHead className='border bg-gray-100 text-center'>Actions</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {loading ? <TableRow><TableCell colSpan={7}>Loading...</TableCell></TableRow> : AdminsToDisplayAfterFilter?.map(admin => (
+            <TableRow key={admin.id}>
+              <TableCell>{admin.id}</TableCell>
+              <TableCell>{admin.email}</TableCell>
+              <TableCell>{admin.name}</TableCell>
+              <TableCell>{admin.role}</TableCell>
+              <TableCell className='md:space-x-4 text-center border-2'>
                 <Button onClick={() => handleDelete(admin.id)} variant="destructive">Delete</Button>
                 <Button onClick={() => handleUpdate(admin.id, { ...admin, name: 'Updated Name' })} variant="default">Update</Button>
-              </td>
-            </tr>
+              </TableCell>
+            </TableRow>
           ))}
-        </tbody>
-      </table>
+        </TableBody>
+      </Table>
       <div className='my-4 flex space-x-4 items-center'>
         <button disabled={page <= 1} onClick={() => {paginationNavigation("backward")}} className='border p-2 cursor-pointer hover:bg-slate-100'>Previous</button>
         <span> Page {page} of {totalPages} </span>
