@@ -29,6 +29,7 @@ model Student_Certificate {
   name              String
   email             String
   certificationName String
+  link              String?
   issuedBy          String
   createdAt              DateTime?            @default(now())
   updatedAt              DateTime?            @updatedAt
