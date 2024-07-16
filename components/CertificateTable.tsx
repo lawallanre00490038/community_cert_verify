@@ -2,10 +2,10 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {getCertificates} from "@/lib/manipulateUserandCertificateTables" 
+import {getCertificates} from "@/utils/queries/students/manipulateStudentCertificateTable" 
 import { StudentsData } from "@/types/students"
-import { revalidatePath } from 'next/cache';
 import toast, { Toaster } from 'react-hot-toast';
+import { WarnActionStudent }  from './WarnActionStudent';
 import { Button } from './ui/button';
 import {
   Table,
@@ -16,6 +16,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { UpdateSliderStudent } from './UpdateSliderStudent';
 
 const CertificateTable = () => {
   const [certificates, setCertificates] = useState<StudentsData[]>([]);
@@ -23,7 +24,7 @@ const CertificateTable = () => {
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(5);
   const [filter, setFilter] = useState('');
   const [sort, setSort] = useState('certificateID');
   const [order, setOrder] = useState('asc');
@@ -74,7 +75,7 @@ const CertificateTable = () => {
   // Fetch data when the component mounts and set the page to 1
   useEffect(() => {
     setPage(1);
-    setLimit(10);
+    setLimit(5);
     fetchData();
   }, []);
 
@@ -85,31 +86,30 @@ const CertificateTable = () => {
   }, [page, certificates, limit]);
 
 
-  const notifyDelete = (msg: string) => toast(msg);
   // Implement the sorting when the sort state changes either direction
-  const handleDelete = async (id: string) => {
-    try {
-      await axios.delete(`/api/certificate_manipulate/${id}`);
-      setCertificates(certificates.filter(certificate => certificate.id !== id));
-      notifyDelete("Certificate deleted successfully")
-    } catch (error) {
-      console.log(error)
-      setError('Failed to delete certificate');
-      console.error(error);
-    }
-  };
+  // const handleDelete = async (id: string) => {
+  //   try {
+  //     await axios.delete(`/api/certificate_manipulate/${id}`);
+  //     setCertificates(certificates.filter(certificate => certificate.id !== id));
+  //     notifyDelete("Certificate deleted successfully")
+  //   } catch (error) {
+  //     console.log(error)
+  //     setError('Failed to delete certificate');
+  //     console.error(error);
+  //   }
+  // };
 
-  // Implement the sorting when the sort state changes either direction
-  const handleUpdate = async (id: string, updatedData: StudentsData) => {
-    try {
-      const response = await axios.put(`/api/certificate_manipulate/${id}`, updatedData);
-      setCertificates
-      (certificates.map(certificate => certificate.certificateID === id ? response.data.result : certificate));
-    } catch (error) {
-      setError('Failed to update certificate');
-      console.error(error);
-    }
-  };
+  // // Implement the sorting when the sort state changes either direction
+  // const handleUpdate = async (id: string, updatedData: StudentsData) => {
+  //   try {
+  //     const response = await axios.put(`/api/certificate_manipulate/${id}`, updatedData);
+  //     setCertificates
+  //     (certificates.map(certificate => certificate.certificateID === id ? response.data.result : certificate));
+  //   } catch (error) {
+  //     setError('Failed to update certificate');
+  //     console.error(error);
+  //   }
+  // };
 
 
   const toggleSort = (column: any) => {
@@ -147,6 +147,7 @@ const CertificateTable = () => {
             <TableHead onClick={() => toggleSort('email')}>Email</TableHead>
             <TableHead onClick={() => toggleSort('certificationName')}>Certification Name</TableHead>
             <TableHead onClick={() => toggleSort('issuedBy')}>Issued By</TableHead>
+            <TableHead onClick={() => toggleSort('link')} className='hidden'>Link</TableHead>
             <TableHead className='border bg-gray-100 text-center'>Actions</TableHead>
           </TableRow>
         </TableHeader>
@@ -159,9 +160,16 @@ const CertificateTable = () => {
               <TableCell>{certificate.email}</TableCell>
               <TableCell>{certificate.certificationName}</TableCell>
               <TableCell>{certificate.issuedBy}</TableCell>
+              <TableCell className='hidden'>{certificate.link}</TableCell>
               <TableCell className='space-y-2 md:space-x-4 text-center border-2 flex items-center justify-center flex-col md:flex-row'>
-                <Button onClick={() => handleDelete(certificate.id)} className='bg-gray-200 rounded-xl'>Delete</Button>
-                <Button onClick={() => handleUpdate(certificate.id, { ...certificate, name: 'Updated Name' })} className='bg-gray-200 rounded-xl'>Update</Button>
+
+                {WarnActionStudent(certificate, "Delete", `
+                  This action cannot be undone. This will permanently delete the
+                  user and remove his/her from database. Do you want to continue?  
+                `)}
+
+                {UpdateSliderStudent(certificate, "Update")}
+
               </TableCell>
             </TableRow>
           ))}

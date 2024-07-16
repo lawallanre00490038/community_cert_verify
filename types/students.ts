@@ -5,6 +5,7 @@ export type StudentsData = {
     name:               string
     email:              string
     certificationName:  string
+    link:               string | null; 
     issuedBy:           string
   }
 

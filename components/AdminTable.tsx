@@ -2,9 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {getAdminUsers, DeleteAdminUsers} from "@/lib/manipulateUserandCertificateTables" 
+import {getAdminUsers} from "@/utils/queries/admins/manipulateAdmins" 
 import { User } from "@/types/students"
 import { Button } from './ui/button';
+import {UpdateSlider} from './UpdateSliderAdmin';
+import {WarnAction} from './WarnActionAdmin';
 
 import {
   Table,
@@ -85,30 +87,6 @@ const CertificateTable = () => {
   }, [page, admins, limit]);
 
 
-  // Implement the sorting when the sort state changes either direction
-  const handleDelete = async (id: string) => {
-    try {
-      const result = await DeleteAdminUsers(id);
-      console.log(result)
-      setAdmins(admins.filter(admin => admin.id !== id));
-    } catch (error) {
-      console.log(error)
-      setError('Failed to delete certificate');
-      console.error(error);
-    }
-  };
-
-  // Implement the sorting when the sort state changes either direction
-  const handleUpdate = async (id: string, updatedData: User) => {
-    try {
-      const response = await axios.put(`/api/admin_manipulate/${id}`, updatedData);
-      setAdmins(admins.map(admin => admin.id === id ? response.data.result : admin));
-    } catch (error) {
-      setError('Failed to update certificate');
-      console.error(error);
-    }
-  };
-
 
   const toggleSort = (column: any) => {
     /*
@@ -153,9 +131,13 @@ const CertificateTable = () => {
               <TableCell>{admin.email}</TableCell>
               <TableCell>{admin.name}</TableCell>
               <TableCell>{admin.role}</TableCell>
-              <TableCell className='md:space-x-4 text-center border-2'>
-                <Button onClick={() => handleDelete(admin.id)} variant="destructive">Delete</Button>
-                <Button onClick={() => handleUpdate(admin.id, { ...admin, name: 'Updated Name' })} variant="default">Update</Button>
+              <TableCell className='md:space-x-4 text-center border-2 space-y-2 lg:space-y-0'>
+                {WarnAction(admin, "Delete", `
+                  This action cannot be undone. This will permanently delete the
+                  user and remove his/her from database. Do you want to continue?  
+                `)}
+
+                {UpdateSlider(admin, "Update")}
               </TableCell>
             </TableRow>
           ))}

@@ -1,7 +1,7 @@
 "use server";
 import { StudentCertificateDetails } from "@/types/students";
 import { redirect } from 'next/navigation'
-import { studentQuery } from "@/utils/queries/studentQuery";
+import { studentQuery } from "@/utils/queries/students/studentQuery";
 import clsx from "clsx";
 
   export const HandleGetStudentsCertificateForm = async ( certificateId: string, email: string
