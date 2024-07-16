@@ -52,7 +52,7 @@ export const UpdateSliderStudent = (certificate: any, open: string) => {
         <SheetHeader> 
           <SheetTitle>Edit Admin</SheetTitle>
           <SheetDescription>
-            Make changes to the information here. Click save when you're done.
+            Make changes to the information here. Click save when you&apos;re done.
           </SheetDescription>
         </SheetHeader>
         <form className="grid gap-4 py-4" onSubmit={handleSubmit}>

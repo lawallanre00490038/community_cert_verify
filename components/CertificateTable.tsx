@@ -1,12 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import {getCertificates} from "@/utils/queries/students/manipulateStudentCertificateTable" 
 import { StudentsData } from "@/types/students"
-import toast, { Toaster } from 'react-hot-toast';
 import { WarnActionStudent }  from './WarnActionStudent';
-import { Button } from './ui/button';
 import {
   Table,
   TableBody,
