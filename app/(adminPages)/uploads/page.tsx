@@ -14,6 +14,7 @@ const Uploads = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!inputRef.current?.files?.length) {
+      toast(`Did you upload any record?`,  { style: { backgroundColor: 'red', color: 'white' } });
       return;
     }
     const formData = new FormData();
