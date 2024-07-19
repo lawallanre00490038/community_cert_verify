@@ -36,7 +36,7 @@ export const authOptions: NextAuthOptions = {
                 //     throw new Error("Invalid password");
                 // }
 
-                if (credentials?.password, user.password) {
+                if (credentials?.password === user.password) {
                     return user;
                 } else {
                     throw new Error("Invalid password");
@@ -49,6 +49,7 @@ export const authOptions: NextAuthOptions = {
         async jwt({ token, user }: { token: any, user: any }) {
             if (user) {
                 token.id = user.id
+                token.role = user.role
             }
             return token
         },

@@ -54,10 +54,10 @@ export function LoginForm() {
         router.push("/dashboard")
     }else {
         toast({
-            title: "You are signed in as an Admin",
+            title: "You are not signed in as an Admin",
             description: (
                 <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-                <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+                <code className="text-red">{JSON.stringify(data, null, 2)}</code>
                 </pre>
             ),
         })
