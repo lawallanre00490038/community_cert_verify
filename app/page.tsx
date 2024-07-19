@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { FormData, UserSchema } from "@/types/form";
 import FormField from "@/components/FormField";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 
 export default function Home() {
@@ -23,6 +24,8 @@ export default function Home() {
   // } 
 
   // const [data, formAction] = useFormState(HandleGetStudentsCertificateForm, previousState || null );
+
+  const {data: session} = useSession()
 
   const {
     register,
