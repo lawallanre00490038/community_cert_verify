@@ -51,7 +51,7 @@ export function LoginForm() {
 
     console.log(response)
 
-    if (!response?.error) {
+    if (response?.ok) {
       router.push("/dashboard")
       setTimeout(() => setLoading(false), 6000)
     } else {
