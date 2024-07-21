@@ -121,7 +121,7 @@ export function LoginForm() {
             ariaLabel="color-ring-loading"
             wrapperStyle={{}}
             wrapperClass="color-ring-wrapper"
-            colors={['#abbd81', '#f47e60', '#abbd81', '#abbd81', '#abbd81']}
+            colors={["black", "black", "black", "black", "black"]}
             />
            <span className="ml-4">Submit</span> 
         </Button>
