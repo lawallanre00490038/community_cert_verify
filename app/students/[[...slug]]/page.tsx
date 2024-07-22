@@ -35,9 +35,9 @@ const page =  async ({ params }: { params: { slug: string[] } }) => {
           </div>
           <div className='border-t border-gray-300 my-4'></div>
 
-          <div className='flex justify-between items-center'>
+          <div className='flex justify-between items-center overflow-x-hidden'>
             <span>Certificate Link</span>
-            <Link href="#" target="_blank"  className='text-blue-500'>{studentDetails?.link}</Link>
+            <Link href={studentDetails?.link || '#'} target="_blank" className='text-blue-500'>Link</Link>
           </div>
           <div className='border-t border-gray-300 my-4'></div>
 
