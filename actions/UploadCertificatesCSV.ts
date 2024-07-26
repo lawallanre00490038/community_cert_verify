@@ -10,18 +10,15 @@ export const uploadCertificatesCSV = async (formdata: FormData) => {
     if (file) {
         try {
             const text = await file.text();
-            const jsonObj: StudentsData[]  = await csvtojson().fromString(text);
+            const jsonObj: StudentsData[] = await csvtojson().fromString(text);
             const countCertificates = await prisma.student_Certificate.createMany({
                 data: jsonObj
             })
-
-            
+            console.log(countCertificates);
             return countCertificates.count
 
         } catch (error) {
-            const err = error as Error;
-            console.error("Error parsing CSV:", error);
-            throw new Error(err.message);
+            return null;
         }
     } else {
         console.error("Invalid file");

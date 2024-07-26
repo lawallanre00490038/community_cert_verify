@@ -4,7 +4,6 @@ import React, { useRef } from 'react';
 import { uploadCertificatesCSV } from "@/actions/UploadCertificatesCSV";
 import { useFormState } from "react-dom"; // Ensure this is the correct import
 import toast, { Toaster } from 'react-hot-toast';
-import { styleText } from 'util';
 
 const Uploads = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -14,15 +13,16 @@ const Uploads = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!inputRef.current?.files?.length) {
-      toast(`Did you upload any record?`,  { style: { backgroundColor: 'red', color: 'white' } });
+      toast(`Please upload a record via a CSV file?`,  { style: { backgroundColor: 'red', color: 'white' } });
       return;
     }
     const formData = new FormData();
     formData.append('certificates', inputRef.current.files[0]);
     const result = await uploadCertificatesCSV(formData);
-    if(!result){
-      console.error(result);
-      return toast(`Did you upload any record?`,  { style: { backgroundColor: 'red', color: 'white' } });
+
+
+    if(!result) {
+      return toast(`Did you upload any record or you might want to check your file?`,  { style: { backgroundColor: 'red', color: 'white' } });
     }
     console.log(result);
     notify(result);
