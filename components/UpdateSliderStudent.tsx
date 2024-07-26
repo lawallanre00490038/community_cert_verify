@@ -50,7 +50,7 @@ export const UpdateSliderStudent = (certificate: any, open: string) => {
       </SheetTrigger>
       <SheetContent>
         <SheetHeader> 
-          <SheetTitle>Edit Student's Details</SheetTitle>
+          <SheetTitle>Edit Student&apos;s Details</SheetTitle>
           <SheetDescription>
             Make changes to the information here. Click save when you&apos;re done.
           </SheetDescription>

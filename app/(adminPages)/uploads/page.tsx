@@ -20,7 +20,7 @@ const Uploads = () => {
     const formData = new FormData();
     formData.append('certificates', inputRef.current.files[0]);
     const result = await uploadCertificatesCSV(formData);
-    if(result.error){
+    if(!result){
       console.error(result);
       return toast(`Did you upload any record?`,  { style: { backgroundColor: 'red', color: 'white' } });
     }

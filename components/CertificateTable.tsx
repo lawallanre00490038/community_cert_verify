@@ -7,7 +7,6 @@ import { WarnActionStudent }  from './WarnActionStudent';
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,

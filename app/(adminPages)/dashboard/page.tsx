@@ -7,7 +7,7 @@ import { useSession } from 'next-auth/react';
 import { countCertificates } from '@/utils/queries/students/manipulateStudentCertificateTable';
 
 
-const page = () => {
+const Dashboard = () => {
 
   const [totalCertificates, setTotalCertificates] = useState<number | null>(null);
   const [count, setCount] = useState<number | undefined>(undefined);
@@ -88,5 +88,5 @@ const page = () => {
   )
 }
 
-export default page
+export default Dashboard
 

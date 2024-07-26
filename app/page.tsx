@@ -6,26 +6,11 @@ import { useForm } from "react-hook-form";
 import { FormData, UserSchema } from "@/types/form";
 import FormField from "@/components/FormField";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { ColorRingComponent } from "@/loaders/ColorRingComponent";
 
 
 export default function Home() {
-
-  // const previousState = {
-  //   id: "",
-  //   certificateID: "",
-  //   studentID: "",
-  //   name: "",
-  //   email: "",
-  //   certificationName: "",
-  //   issuedBy: "",
-  //   createdAt: null,
-  //   updatedAt: null
-  // } 
-
-  // const [data, formAction] = useFormState(HandleGetStudentsCertificateForm, previousState || null );
 
   const [loading, setLoading] = useState(false)
 

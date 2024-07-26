@@ -52,11 +52,9 @@ const CertificateTable = () => {
     try {
       const response = await getAdminUsers();
       setAdmins(response  as User[] || [])
-      console.log(response)
       setTotalPages(Math.ceil((response?.length || 0) / limit));
     } catch (error) {
       setError('Failed to fetch data');
-      console.error(error);
     }
     setLoading(false);
   };
