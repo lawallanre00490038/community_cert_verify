@@ -11,7 +11,7 @@ const layout = ({ children }: { children: ReactNode }) => {
         <NavBar />
         <div className='flex gap-x-4  justify-center'>
             <SideBar />
-            <div className='w-[80%] pr-4'>
+            <div className='w-[80%] pr-2 md:pr-4'>
                 {children}
                 <Toaster />
             </div>
