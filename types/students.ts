@@ -5,7 +5,8 @@ export type StudentsData = {
     name:               string
     email:              string
     certificationName:  string
-    link:               string | null; 
+    link:               string | null
+    issuedDate:         string | null
     issuedBy:           string
   }
 
@@ -28,6 +29,7 @@ export type StudentsData = {
     link: string;
     certificationName: string;
     issuedBy: string;
+    issuedDate: string | null;
     createdAt: Date | null;
     updatedAt: Date | null;
   } | null;

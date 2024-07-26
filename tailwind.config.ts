@@ -22,6 +22,9 @@ const config = {
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
+        green: {
+          dsn: '#009548',
+        },
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: {

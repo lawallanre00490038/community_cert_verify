@@ -4,9 +4,9 @@ import {MobileMenu} from './MobileMenu';
 
 const NavBar = () => {
   return (
-    <nav className='h-10 flex justify-between items-center px-8 my-4'>
+    <nav className='h-10 flex justify-between items-center my-4 px-4 md:px-0'>
       <div>
-        <h1 className='text-2xl font-extrabold'>DSN Comm</h1>
+        <h1 className='text-sm md:text-2xl font-extrabold text-green-dsn bg-white p-2 rounded-xl'>DSN Community Certificate Issuer</h1>
       </div>
         <div className='cursor-pointer z-30 md:hidden'>
           <MobileMenu />

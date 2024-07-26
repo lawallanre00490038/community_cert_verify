@@ -17,6 +17,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { Button } from './ui/button';
 
 const CertificateTable = () => {
   const [admins, setAdmins] = useState<User[]>([]);
@@ -121,10 +122,10 @@ const CertificateTable = () => {
 
         placeholder="Filter by name, email, etc..."
       />
-      <Table className=''>
-        <TableCaption>A list of all available Admins</TableCaption>
-        <TableHeader>
-          <TableRow>
+      <Table className='border-collapse border border-gray-800'>
+        <TableCaption className='font-extrabold'>A list of all available Admins</TableCaption>
+        <TableHeader className='font-extrabold uppercase'>
+          <TableRow className='border-collapse border border-gray-800'>
             <TableHead onClick={() => toggleSort('id')}>Id</TableHead>
             <TableHead onClick={() => toggleSort('email')}>Email</TableHead>
             <TableHead onClick={() => toggleSort('name')}>Name</TableHead>
@@ -135,9 +136,9 @@ const CertificateTable = () => {
             }
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody className=''>
           {loading ? <TableRow><TableCell colSpan={7}>Loading...</TableCell></TableRow> : AdminsToDisplayAfterFilter?.map(admin => (
-            <TableRow key={admin.id}>
+            <TableRow key={admin.id} className='border-collapse border border-gray-800'>
               <TableCell>{admin.id}</TableCell>
               <TableCell>{admin.email}</TableCell>
               <TableCell>{admin.name}</TableCell>
@@ -158,10 +159,10 @@ const CertificateTable = () => {
           ))}
         </TableBody>
       </Table>
-      <div className='my-4 flex space-x-4 items-center'>
-        <button disabled={page <= 1} onClick={() => {paginationNavigation("backward")}} className='border p-2 cursor-pointer hover:bg-slate-100'>Previous</button>
+      <div className='my-4 flex space-x-4 items-center border-collapse border border-gray-800 w-auto'>
+        <Button disabled={page <= 1} onClick={() => {paginationNavigation("backward")}} className='border p-2 cursor-pointer hover:bg-green-500'>Previous</Button>
         <span> Page {page} of {totalPages} </span>
-        <button disabled={page >= totalPages} onClick={() => {paginationNavigation("forward")}} className='border p-2 cursor-pointer hover:bg-slate-100'>Next</button>
+        <Button disabled={page >= totalPages} onClick={() => {paginationNavigation("forward")}} className='border p-2 cursor-pointer hover:bg-green-500'>Next</Button>
       </div>
     </div>
     

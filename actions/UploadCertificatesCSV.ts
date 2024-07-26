@@ -19,7 +19,9 @@ export const uploadCertificatesCSV = async (formdata: FormData) => {
             return countCertificates.count
 
         } catch (error) {
+            const err = error as Error;
             console.error("Error parsing CSV:", error);
+            throw new Error(err.message);
         }
     } else {
         console.error("Invalid file");

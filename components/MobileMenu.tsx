@@ -35,7 +35,7 @@ export function MobileMenu() {
       <SheetContent side="left" className="bg-white p-0 flex items-center flex-col justify-center">
       {
             sideNav.map((item, index) => (
-                <div key={index} className={`w-[100%] flex items-center justify-center  p-4 hover:border-b-2 cursor-pointer transition-all ${pathname === item.path ? 'bg-green-500 text-white' : 'bg-white'} font-semibold`}>       
+                <div key={index} className={`w-[100%] flex items-center justify-center  p-4 hover:border-b-2 cursor-pointer transition-all ${pathname === item.path ? 'bg-green-dsn text-white' : 'bg-white'} font-semibold`}>       
                     <Link href={item.path} className='flex items-center gap-x-4 justify-between' onClick={item.title === 'Sign Out' ? handleSignOut : undefined}>
                         <item.icon />
                         <span>{item.title}</span>

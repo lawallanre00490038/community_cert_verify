@@ -72,7 +72,7 @@ export const UpdateSliderAdmin = (admin: any, open: string) => {
             <Input id="username" name="role" placeholder={admin.role} type="text" className="col-span-3" />
           </div>
             <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
+            <Button type="submit" className="hover:bg-green-500 rounded-xl">Save changes</Button>
           </SheetClose>
         </form>
       </SheetContent>

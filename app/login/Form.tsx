@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { useRouter } from "next/navigation"
-import { ColorRing } from 'react-loader-spinner'
+import { ColorRingComponent } from "@/loaders/ColorRingComponent"
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -83,7 +83,7 @@ export function LoginForm() {
               <FormDescription>
                 Kindly enter your email address
               </FormDescription>
-              <FormMessage />
+              <FormMessage className="text-red-500"/>
             </FormItem>
           )}
         />
@@ -99,21 +99,13 @@ export function LoginForm() {
               <FormDescription>
                 Kindly enter your password
               </FormDescription>
-              <FormMessage />
+              <FormMessage className="text-red-500" />
             </FormItem>
           )}
         />
-        <Button type="submit" className="bg-green-500 rounded-xl w-full text-white flex items-center justify-center space-x-2">
+        <Button type="submit" className="bg-green-dsn active:bg-green-500 rounded-xl w-full text-white flex items-center justify-center space-x-2">
           {loading && (
-            <ColorRing
-              visible={true}
-              height="40"
-              width="40"
-              ariaLabel="color-ring-loading"
-              wrapperStyle={{}}
-              wrapperClass="color-ring-wrapper"
-              colors={["black", "black", "black", "black", "black"]}
-            />
+            <ColorRingComponent size="40" isvisible={loading}  />
           )}
           <span className="ml-4">Submit</span>
         </Button>

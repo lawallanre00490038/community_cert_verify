@@ -1,6 +1,7 @@
 "use server";
 
 import {prisma } from "@/db/client"
+import { Certificate } from "crypto";
 import { revalidatePath } from "next/cache";
 
 // Get all the certificates
@@ -12,6 +13,34 @@ export const getCertificates = async () => {
     console.error(error)
   }
 };
+
+export const countCertificates = async () => {
+  try {
+    const  result = await prisma.student_Certificate.count();
+    return result
+  }
+  catch (error) {
+    console.error(error)
+  }
+}
+
+
+export const  getCertificateAnalytics = async ()=> {
+  const data = await prisma.student_Certificate.groupBy({
+    by: ['certificationName', 'issuedDate'],
+    _count: {
+      certificationName: true,
+    },
+    orderBy: {
+      issuedDate: 'asc',
+    },
+  });
+  return data;
+}
+
+
+
+
 
 
 // delete the certificate

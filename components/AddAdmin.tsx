@@ -35,9 +35,9 @@ export const AddSliderAdmin = ( ) => {
   return (
     <Sheet>
       <SheetTrigger asChild className="absolute md:top-0 right-0 top-[-50px]">
-        <Button>
+
             <IoMdAddCircle  className='size-10 transition-all hover:rotate-45 cursor-pointer active:scale-[1.1]'/>
-        </Button>
+ 
       </SheetTrigger>
       <SheetContent>
         <SheetHeader> 

@@ -14,6 +14,7 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { UpdateSliderStudent } from './UpdateSliderStudent';
+import { Button } from './ui/button';
 
 const CertificateTable = () => {
   const [certificates, setCertificates] = useState<StudentsData[]>([]);
@@ -135,9 +136,9 @@ const CertificateTable = () => {
 
         placeholder="Filter by name, email, etc..."
       />
-      <Table>
-        <TableHeader>
-          <TableRow>
+      <Table className='border-collapse border border-gray-800'>
+        <TableHeader  className='font-extrabold uppercase'>
+          <TableRow className='border-collapse border border-gray-800'>
             <TableHead onClick={() => toggleSort('certificateID')}>Certificate ID</TableHead>
             <TableHead onClick={() => toggleSort('studentID')}>Student ID</TableHead>
             <TableHead onClick={() => toggleSort('name')}>Name</TableHead>
@@ -150,7 +151,7 @@ const CertificateTable = () => {
         </TableHeader>
         <TableBody>
           {loading ? <TableRow><TableCell colSpan={7}>Loading...</TableCell></TableRow> : certificatesToDisplayAfterFilter?.map(certificate => (
-            <TableRow key={certificate.id}>
+            <TableRow key={certificate.id} className='border-collapse border border-gray-800'>
               <TableCell>{certificate.certificateID}</TableCell>
               <TableCell>{certificate.studentID}</TableCell>
               <TableCell>{certificate.name}</TableCell>
@@ -173,9 +174,9 @@ const CertificateTable = () => {
         </TableBody>
       </Table>
       <div className='my-4 flex space-x-4 items-center'>
-        <button disabled={page <= 1} onClick={() => {paginationNavigation("backward")}} className='border p-2 cursor-pointer hover:bg-slate-100'>Previous</button>
+        <Button disabled={page <= 1} onClick={() => {paginationNavigation("backward")}} className='text-white border p-2 cursor-pointer bg-green-dsn hover:bg-green-500'>Previous</Button>
         <span> Page {page} of {totalPages} </span>
-        <button disabled={page >= totalPages} onClick={() => {paginationNavigation("forward")}} className='border p-2 cursor-pointer hover:bg-slate-100'>Next</button>
+        <Button disabled={page >= totalPages} onClick={() => {paginationNavigation("forward")}} className='text-white border p-2 cursor-pointer bg-green-dsn hover:bg-green-500'>Next</Button>
       </div>
     </div>
     

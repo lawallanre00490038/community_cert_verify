@@ -6,7 +6,9 @@ import { useForm } from "react-hook-form";
 import { FormData, UserSchema } from "@/types/form";
 import FormField from "@/components/FormField";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import { useState } from "react";
+import { ColorRingComponent } from "@/loaders/ColorRingComponent";
 
 
 export default function Home() {
@@ -25,7 +27,7 @@ export default function Home() {
 
   // const [data, formAction] = useFormState(HandleGetStudentsCertificateForm, previousState || null );
 
-  const {data: session} = useSession()
+  const [loading, setLoading] = useState(false)
 
   const {
     register,
@@ -37,6 +39,7 @@ export default function Home() {
   });
 
   const onSubmit = async(formData: FormData)=>{
+    setLoading(true)
     await HandleGetStudentsCertificateForm(formData.certificateId, formData.email)
   }
 
@@ -74,7 +77,10 @@ export default function Home() {
             />
           </div>
 
-          <Button type="submit" className="mt-8 w-[100%] p-4 bg-green-800 text-white rounded-xl hover:bg-green-500  transition active:bg-green-700 active:font-semibold">Submit</Button>
+          <Button type="submit" className="mt-8 w-[100%] p-4 bg-green-dsn text-white rounded-xl hover:bg-green-500  transition active:bg-green-700 active:font-semibold">
+            {loading &&  <ColorRingComponent size="40" isvisible={loading}  />}
+              Verify Certificate
+          </Button>
 
           <div className="mt-8 hover:font-bold cursor-pointer text-left">
           </div>

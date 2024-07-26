@@ -72,7 +72,7 @@ const SideBar = () => {
 
         {
             sideNav.map((item, index) => (
-                <div key={index} className={`flex items-center   p-4 hover:border-b-2 cursor-pointer transition-all ${pathname === item.path ? 'bg-green-500 text-white' : 'bg-white'} font-semibold`}>       
+                <div key={index} className={`flex items-center   p-4 hover:border-b-2 cursor-pointer transition-all ${pathname === item.path ? 'bg-green-dsn text-white' : 'bg-white'} font-semibold`}>       
                     <Link href={item.path} className='flex items-center gap-x-4 justify-between' onClick={item.title === 'Sign Out' ? handleSignOut : undefined}>
                         <item.icon />
                         <span>{item.title}</span>

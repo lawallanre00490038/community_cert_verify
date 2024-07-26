@@ -50,7 +50,7 @@ export const UpdateSliderStudent = (certificate: any, open: string) => {
       </SheetTrigger>
       <SheetContent>
         <SheetHeader> 
-          <SheetTitle>Edit Admin</SheetTitle>
+          <SheetTitle>Edit Student's Details</SheetTitle>
           <SheetDescription>
             Make changes to the information here. Click save when you&apos;re done.
           </SheetDescription>
@@ -99,7 +99,7 @@ export const UpdateSliderStudent = (certificate: any, open: string) => {
             <Input id="issuedBy" name="issuedBy" placeholder={certificate.issuedBy} type="text" className="col-span-3" />
           </div>
           <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
+            <Button type="submit" className="hover:bg-green-500 rounded-xl">Save changes</Button>
           </SheetClose>
         </form>
       </SheetContent>
