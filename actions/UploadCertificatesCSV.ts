@@ -62,7 +62,7 @@ export const uploadCertificatesCSV = async (formdata: FormData) => {
             const jsonArray = await csvtojson().fromString(text);
             
             // Log the first row for debugging purposes
-            console.log("First row of JSON array:", jsonArray[0]);
+            // console.log("First row of JSON array:", jsonArray[0]);
 
             // Check if the headers match the expected headers
             const headers = Object.keys(jsonArray[0]);
@@ -76,13 +76,12 @@ export const uploadCertificatesCSV = async (formdata: FormData) => {
             const jsonObj: StudentsData[] = jsonArray.map(mapCsvToPrisma);
             
             // Log the first mapped row for debugging purposes
-            console.log("First mapped row:", jsonObj[0]);
+            // console.log("First mapped row:", jsonObj[0]);
 
             const countCertificates = await prisma.student_Certificate.createMany({
                 data: jsonObj
             });
             
-            console.log(countCertificates);
             return countCertificates.count;
         } catch (error) {
             console.error("Error processing file:", error);

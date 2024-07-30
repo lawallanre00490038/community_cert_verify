@@ -1,18 +1,5 @@
  openssl rand -base64 32
 
- TOKEN
-
- From the middleware {
-  name: 'Tejumola Asanloko',
-  email: 'teju@datasciencenigeria.ai',
-  sub: '6693231ca502ad57abaaf45e',
-  id: '6693231ca502ad57abaaf45e',
-  role: 'superadmin',
-  iat: 1721515982,
-  exp: 1724107982,
-  jti: 'ab2ba122-e35c-4f8b-bd77-b81f2152424c'
-}
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 https://youtu.be/N_sUsq_y10U
