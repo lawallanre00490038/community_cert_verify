@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import { TrendingUp } from "lucide-react";
 import { Bar, BarChart, Line, LineChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Label, LabelList } from "recharts";
 import { getCertificateAnalytics } from "@/utils/queries/students/manipulateStudentCertificateTable";
 import { TooltipProps } from 'recharts';
