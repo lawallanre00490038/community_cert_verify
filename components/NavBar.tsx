@@ -17,7 +17,7 @@ const NavBar = () => {
   return (
     <nav className='h-10 flex justify-between items-center my-4 px-4 md:px-0'>
       <div className='flex justify-between items-center w-full px-8'>
-        <Link href="/dashboard" className='text-sm md:text-xl font-extrabold text-green-dsn py-2 rounded-xl'>DSN Community Certificate Issuer</Link>
+        <Link href="/dashboard" className='text-sm md:text-xl font-extrabold text-green-dsn py-4 rounded-xl max-w-[150px] md:max-w-full'>DSN Community Certificate Issuer</Link>
 
         <div className='hidden h-10 rounded-full border-2 bg-slate-100 md:flex items-center justify-center space-x-2 px-2 hover:cursor-pointer active:bg-slate-200 transition-all'>
         <CircleUser /> <span className='text-green-dsn font-bold'>{first} {last}</span>
