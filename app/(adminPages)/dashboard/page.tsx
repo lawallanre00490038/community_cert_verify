@@ -27,7 +27,7 @@ const Dashboard = () => {
 
   return (
           
-      <div className='flex flex-col md:flex-row  items-center justify-center gap-x-2 space-y-4 md:space-y-0 h-[calc(100vh-100px)] md:pr-4'>
+      <div className='flex flex-col md:flex-row  items-center justify-center gap-x-2 space-y-4 md:space-y-0 h-[calc(100vh-150px)] md:pr-4'>
         <div className='w-full md:w-1/3  h-[100px] border flex justify-center items-center bg-white space-x-8 hover:cursor-pointer
         hover:scale-[1.08] transition-all duration-300 ease-in-out'
         onClick={() => {
