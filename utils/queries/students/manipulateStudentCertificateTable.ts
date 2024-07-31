@@ -1,13 +1,18 @@
 "use server";
 
 import {prisma } from "@/db/client"
-import { Certificate } from "crypto";
 import { revalidatePath } from "next/cache";
 
 // Get all the certificates
 export const getCertificates = async () => {
   try {
-    const  result = await prisma.student_Certificate.findMany();
+    const  result = await prisma.student_Certificate.findMany(
+      {
+        orderBy: {
+          createdAt: 'desc'
+        }
+      }
+    );
     return result
   } catch (error) {
     console.error(error)
