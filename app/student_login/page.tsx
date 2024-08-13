@@ -14,7 +14,7 @@ const StudentLogin = () => {
           </div>
           
           <div className='p-4 md:p-8 text-sm md:text-lg w-full max-w-[600px] place-self-center h-screen md:h-auto flex flex-col justify-center items-center md:block'>
-            <Link href="/" className=''>
+            <Link href="/" className='px-4'>
               <div className='flex justify-center items-center max-w-[400px] mx-auto relative'>
                 <Image src='/logo.png' alt='logo' width={100} height={100} className='p-2'/>
                 <div className='border-l-2 h-32 mx-8 border-black/30'></div>
