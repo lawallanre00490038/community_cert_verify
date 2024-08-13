@@ -8,7 +8,7 @@ const HeaderNav = () => {
     
     <header className=' bg-white'>
 
-      <div className='px-[3rem] md:px-[6rem] flex justify-between items-center shadow-lg p-2'>
+      <div className='px-[2rem] md:px-[6rem] flex justify-between items-center shadow-lg p-2'>
         <Link href="/" className='relative'>
           <Image src='/logo.png' 
           alt='logo' 
