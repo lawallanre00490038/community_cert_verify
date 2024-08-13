@@ -13,7 +13,7 @@ const StudentLogin = () => {
             <Image src='/logo.png' alt='bg' width={400} height={400} className='absolute translate-x-[50%] right-[50%]  top-[50%] -translate-y-[50%] z-50'/>
           </div>
           
-          <div className='shadow-xl p-4 md:p-8 text-sm md:text-lg w-full max-w-[600px] place-self-center h-screen md:h-auto flex flex-col justify-center items-center md:block overflow-hidden'>
+          <div className='p-4 md:p-8 text-sm md:text-lg w-full max-w-[600px] place-self-center h-screen md:h-auto flex flex-col justify-center items-center md:block overflow-hidden'>
             <Link href="/" className='px-4'>
               <div className='flex justify-center items-center max-w-[400px] mx-auto relative'>
                 <Image src='/logo.png' alt='logo' width={100} height={100} className='p-2'/>
