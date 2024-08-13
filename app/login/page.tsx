@@ -1,12 +1,38 @@
-import React from 'react'
+"use client";
+
+import React, { useEffect, useState } from 'react';
 import {LoginForm} from './Form'
 import Image from 'next/image'
 import Link from 'next/link'
 
 const AdminLogin = () => {
+  // const [isMobile, setIsMobile] = useState(false);
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsMobile(window.innerWidth <= 768);
+  //   };
+
+  //   handleResize(); // Set initial value
+  //   window.addEventListener('resize', handleResize);
+
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, []);
+
   return (
-    <section className='h-screen w-screen bg-white'>
-        
+    <section className='h-screen w-screen bg-white relative'>
+      {/* {isMobile && (
+        <div className="text-center">
+           <Image 
+            src="/logo.png"
+            alt="logo"
+            fill
+            className='object-cover absolute z-0'
+          />
+        </div>
+      )} */}
         <div className='md:grid grid-cols-2 h-full place-content-center'>
           <div className='hidden md:block w-full order-2 relative'>
             <Image src='/bg1.png' alt='bg' width={500} height={500} className='h-full w-full'/>
