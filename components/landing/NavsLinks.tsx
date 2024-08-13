@@ -13,7 +13,7 @@ const NavsLinks = () => {
 
     
   return (
-     <nav className='h-10 flex justify-between items-center my-4 px-4 md:px-4'>
+     <nav className='h-10 flex justify-between items-center my-4 md:px-4'>
         <div className='hidden md:flex justify-between items-center w-full'>
             <ul className='flex gap-x-4 text-sm text-black/50'>
                 {HomeNavsLinks.map((nav, index) => (
