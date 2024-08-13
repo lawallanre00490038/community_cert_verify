@@ -24,7 +24,7 @@ const StudentLogin = () => {
               </div>
             </Link>
 
-            <div className='bg-transparent p-4 place-content-center pb-8'>
+            <div className='shadow-xl bg-transparent p-4 place-content-center pb-8'>
               <Login />
             </div>
             
