@@ -5,7 +5,7 @@ export const HomeNavsLinks = [
   },
   {
       title: 'Blog',
-      path: '/Blog'
+      path: 'https://datasciencenigeria.org/blog/'
   },
   {
       title: 'FAQ',

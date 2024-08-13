@@ -4,7 +4,6 @@
 
   @layer base {
     :root {
-      /* --background: #D6EEE2; */
       --font-poppins: "Poppins", sans-serif;
     }
 
@@ -17,6 +16,5 @@
   }
 
   body {
-    background-color: var(--background);
     font-family: var(--font-poppins);
   }

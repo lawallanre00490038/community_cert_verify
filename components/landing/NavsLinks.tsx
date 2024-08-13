@@ -18,7 +18,9 @@ const NavsLinks = () => {
             <ul className='flex gap-x-4 text-sm text-black/50'>
                 {HomeNavsLinks.map((nav, index) => (
                 <li key={index} className={`cursor-pointer transition-all py-2 ${pathname === nav.path ? 'bg-green-dsn text-white' : ''} font-semibold py-1`}>
-                    <Link href={nav.path} className={`${nav.title === "Verify"? "border-green-dsn border": ""} px-8 py-2`}>{nav.title}</Link>
+                    <Link href={nav.path} 
+                    target={nav.title === "Blog" ? "_blank" : "_self"} 
+                    className={`${nav.title === "Verify"? "border-green-dsn border": ""} px-8 py-2`}>{nav.title}</Link>
                 </li>
                 ))}
             </ul>
