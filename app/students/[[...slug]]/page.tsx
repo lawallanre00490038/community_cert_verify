@@ -53,7 +53,7 @@ const page =  async ({ params }: { params: { slug: string[] } }) => {
           </div>
           <div className='border-t border-gray-300 my-4'></div>
 
-          <Link href="/" className='block text-xs md:text-sm text-center text-green-500'>Search for another certificate?</Link>
+          <Link href="/student_login" className='block text-xs md:text-sm text-center text-green-500'>Search for another certificate?</Link>
         </div>
       </div>
     </>
