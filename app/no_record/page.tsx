@@ -13,7 +13,7 @@ const page = () => {
 
           <p className='text-red-500 text-xs md:text-lg mb-8'>OR</p>
           
-          <Link href="/" className='text-xs md:text-sm text-center text-white border p-2 hover:text-green-300 hover:bg-white transition hover:font-bold'>Try Again</Link>
+          <Link href="/student_login" className='text-xs md:text-sm text-center text-white border p-2 hover:text-green-300 hover:bg-white transition hover:font-bold'>Try Again</Link>
         </div>
       </div>   
     </div>
