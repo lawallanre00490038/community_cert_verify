@@ -108,7 +108,7 @@ export function LoginForm() {
             <ColorRingComponent size="40" isvisible={loading}  />
           )}
           
-          <span className={`${loading ? "ml-4": ""}`}>Submit</span>
+          <span className={`${loading ? "ml-4": ""}`}>Login</span>
         </Button>
       </form>
     </Form>
