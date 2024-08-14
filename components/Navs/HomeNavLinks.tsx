@@ -9,7 +9,7 @@ export const HomeNavsLinks = [
   },
   {
       title: 'FAQ',
-      path: '/faq'
+      path: '/'
   },
   {
       title: 'Verify',
