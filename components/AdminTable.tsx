@@ -156,13 +156,12 @@ const CertificateTable = () => {
             </TableRow>
           ))}
         </TableBody>
-      
+      </Table>
       <div className='my-4 flex space-x-4 items-center border-collapse border border-gray-800 w-auto'>
         <Button disabled={page <= 1} onClick={() => {paginationNavigation("backward")}} className='border p-2 cursor-pointer hover:bg-green-500'>Previous</Button>
         <span> Page {page} of {totalPages} </span>
         <Button disabled={page >= totalPages} onClick={() => {paginationNavigation("forward")}} className='border p-2 cursor-pointer hover:bg-green-500'>Next</Button>
       </div>
-      </Table>
     </div>
     
   );
