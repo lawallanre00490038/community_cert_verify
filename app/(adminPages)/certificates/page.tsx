@@ -3,7 +3,7 @@ import CertificateTable from '@/components/CertificateTable';
 
 const page = () => {
   return (
-    <div className='flex-1 w-[100%] h-full mb-14 md:mb-0 mt-14 md:mt-0'>
+    <div className='flex-1 w-[100%] h-full mb-24 md:mb-0'>
         <CertificateTable />
     </div>
   )
