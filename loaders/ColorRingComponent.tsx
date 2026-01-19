@@ -17,7 +17,7 @@ export const ColorRingComponent = ({isvisible, size}: ArgumentProps ) => {
         ariaLabel="color-ring-loading"
         wrapperStyle={{}}
         wrapperClass="color-ring-wrapper"
-        colors={["black", "black", "black", "black", "black"]}
+        colors={["white", "white", "white", "white", "white"]}
       />
     </>
   )
