@@ -10,17 +10,17 @@ import End from './End'
 const Layout = ( ) => {
   return (
     <>
-    <HeaderNav />
-      <Hero />
-      <div className='container'>
-        <Purpose />
-        <Security />
-        <Footer />
-      </div>
-    <End /> 
+      <HeaderNav />
+        <Hero />
+        <div className='container'>
+          <Purpose />
+          <Security />
+          <Footer />
+        </div>
+      <End /> 
     </>
-    
   )
 }
+
 
 export default Layout
