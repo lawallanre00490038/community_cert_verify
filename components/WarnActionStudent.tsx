@@ -29,7 +29,7 @@ import { deleteCertificate } from '@/utils/queries/students/manipulateStudentCer
         <AlertDialogTrigger asChild>
           <Button variant="outline">{open}</Button>
         </AlertDialogTrigger>
-        <AlertDialogContent>
+        <AlertDialogContent className="bg-yellow-50">
           <AlertDialogHeader>
             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
             <AlertDialogDescription>
@@ -37,9 +37,9 @@ import { deleteCertificate } from '@/utils/queries/students/manipulateStudentCer
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel className="text-white">Cancel</AlertDialogCancel>
             <AlertDialogAction>
-                <Button onClick={ handleDelete }>Continue</Button>
+                <Button onClick={ handleDelete } className="text-red-dsn">Continue</Button>
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

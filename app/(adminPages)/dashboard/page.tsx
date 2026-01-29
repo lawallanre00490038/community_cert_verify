@@ -27,7 +27,7 @@ const Dashboard = () => {
 
   return (
           
-      <div className='flex flex-col md:flex-row gap-x-2 space-y-4 md:space-y-0 items-center justify-center h-full w-full px-4 py-8'>
+      <div className='flex items-center justify-center min-h-[calc(100vh-200px)] w-full shadow-2xl rounded-3xl p-12 space-y-8 z-50'>
         <div className='w-full md:w-1/3  h-[100px] border flex justify-center items-center bg-white space-x-8 hover:cursor-pointer
         hover:scale-[1.08] transition-all duration-300 ease-in-out'
         onClick={() => {
