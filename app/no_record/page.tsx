@@ -3,19 +3,35 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='flex justify-center items-center flex-col h-screen m-auto container'>
-      <div className='w-full md:max-w-[600px] border bg-white p-4'>
-        <div className='text-sm md:text-lg text-center space-y-8 bg-green-500 p-4 pb-8'>
-          <h1 className='text-xl text-red-500'>
-           <i className='font-medium md:font-semibold'>No Certificate Found. Please Contact Admin via <span className='text-white'>aicommunity@datasciencenigeria.ai</span></i>
+    <div className="min-h-screen flex items-center justify-center px-4 bg-gray-50">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-lg border">
+        <div className="bg-green-500 rounded-t-2xl px-6 py-8 text-center">
+          <h1 className="text-lg md:text-xl font-semibold text-red-700 leading-relaxed">
+            No Certificate Found!
           </h1>
-          {/* <Link href="/" className='block text-xs md:text-lg text-center underline text-white'>For more information, </Link> */}
 
-          <p className='text-red-500 text-xs md:text-lg mb-8'>OR</p>
-          
-          <Link href="/student_login" className='text-xs md:text-sm text-center text-white border p-2 hover:text-green-300 hover:bg-white transition hover:font-bold'>Try Again</Link>
+          <p className="mt-3 text-sm md:text-base text-white/90 leading-relaxed">
+            Please contact the admin via
+          </p>
+
+          <p className="mt-1 text-sm md:text-base font-medium text-white break-all">
+            aicommunity@datasciencenigeria.ai
+          </p>
         </div>
-      </div>   
+
+        <div className="px-6 py-6 flex flex-col items-center space-y-4">
+          <span className="text-xs md:text-sm text-gray-500 font-medium">
+            OR
+          </span>
+
+          <Link
+            href="/student_login"
+            className="w-full text-center rounded-lg border border-green-500 text-green-600 py-2 text-sm md:text-base font-medium hover:bg-green-500 hover:text-white transition"
+          >
+            Try Again
+          </Link>
+        </div>
+      </div>
     </div>
   )
 }
