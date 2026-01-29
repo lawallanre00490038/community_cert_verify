@@ -1,57 +1,65 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
-import {LoginForm} from './Form'
-import Image from 'next/image'
-import Link from 'next/link'
+import React from 'react';
+import { LoginForm } from './Form';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const AdminLogin = () => {
-  // const [isMobile, setIsMobile] = useState(false);
-
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setIsMobile(window.innerWidth <= 768);
-  //   };
-
-  //   handleResize(); // Set initial value
-  //   window.addEventListener('resize', handleResize);
-
-  //   return () => {
-  //     window.removeEventListener('resize', handleResize);
-  //   };
-  // }, []);
-
   return (
-    <section className='h-screen w-screen bg-white relative px-2'>
-        <div className='md:grid grid-cols-2 h-full place-content-center'>
-        <div className='hidden md:block w-full relative md:order-2'>
-            <Image src='/logo.png' alt='bg' width={400} height={400} className='absolute translate-x-[50%] right-[50%]  top-[50%] -translate-y-[50%] z-50'/>
-            <Image className="h-full w-full object-cover rounded-md" src="/admin_login.png" 
-            width={500} height={500}
-            alt="Random image" />
-              <div className="absolute inset-0 bg-green-200 opacity-60 rounded-md"></div>
-                  <Image src='/logo.png' alt='bg' width={400} height={400} className='absolute translate-x-[50%] right-[50%]  top-[50%] -translate-y-[50%] z-50'/>      
-            </div>
-          
-          <div className='p-4 md:p-8 text-sm md:text-lg w-full max-w-[600px] place-self-center h-screen md:h-auto flex flex-col justify-center items-center md:block overflow-hidden'>
-            <Link href="/" className='px-4'>
-              <div className='flex justify-center items-center max-w-[700px] mx-auto relative'>
-                <Image src='/logo.png' alt='logo' width={100} height={100} className='p-2'/>
-                <div className='border-l-2 h-32 mx-8 border-black/30'></div>
-                <div>
-                  <p className='text-green-dsn font-extrabold text-xl'>Admin Login</p>
-                </div>
-              </div>
-            </Link>
-
-            <div className='shadow-xl bg-transparent p-4 place-content-center pb-8'>
-              <LoginForm />
-            </div>
-            
+    <section className="h-screen w-screen bg-gray-50 relative overflow-hidden">
+      <div className="md:grid md:grid-cols-2 h-full">
+        {/* Image & Overlay Section */}
+        <div className="relative hidden md:block md:order-2 w-full h-full">
+          {/* Background Image */}
+          <Image
+            src="/admin_login.png"
+            alt="Admin background"
+            fill
+            className="object-cover rounded-l-3xl"
+          />
+          {/* Green Semi-transparent Overlay */}
+          <div className="absolute inset-0 bg-green-300/60 backdrop-blur-sm rounded-l-3xl"></div>
+          {/* Center Logo */}
+          <div className="absolute inset-0 flex justify-center items-center">
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              width={180}
+              height={180}
+              className="z-50 animate-pulse"
+            />
           </div>
         </div>
+
+        {/* Login Form Section */}
+        <div className="flex flex-col justify-center items-center md:items-start px-6 md:px-16 py-12 md:py-24 w-full">
+          <Link href="/" className="mb-8 w-full max-w-md mx-auto md:mx-0">
+            <div className="flex items-center gap-6">
+              <Image
+                src="/logo.png"
+                alt="logo"
+                width={80}
+                height={80}
+              />
+              <div className="border-l-2 border-gray-300 h-16"></div>
+              <h1 className="text-3xl md:text-4xl font-extrabold text-green-700">
+                Admin Login
+              </h1>
+            </div>
+          </Link>
+
+          <div className="w-full max-w-md bg-white/80 backdrop-blur-lg shadow-2xl rounded-xl p-8">
+            <LoginForm />
+          </div>
+
+          <p className="mt-6 text-gray-500 text-sm text-center md:text-left">
+            © {new Date().getFullYear()} Your Company. All rights reserved.
+          </p>
+        </div>
+      </div>
     </section>
-  )
-}
+  );
+};
 
 export default AdminLogin;
