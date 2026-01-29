@@ -16,7 +16,7 @@ const StudentLogin = () => {
             src="/student_login.png"
             alt="Student login"
             fill
-            className="object-cover"
+            className="object-cover opacity-50 blur-[1px]"
             priority
           />
 
@@ -25,13 +25,18 @@ const StudentLogin = () => {
 
           {/* branding */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-white px-8 text-center">
-            <Image
-              src="/logo.png"
-              alt="logo"
-              width={120}
-              height={120}
-              className="mb-6"
-            />
+            <div className="relative  h-[120px]">
+              <Image
+                src="/logo.png"
+                alt="logo"
+                width={120}
+                height={120}
+                className="w-full h-full object-cover"
+              />
+              {/* Overlay */}
+              <div className="absolute inset-0"></div>
+            </div>
+           
             <h2 className="text-3xl font-extrabold">
               Certificate Verification
             </h2>
