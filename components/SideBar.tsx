@@ -15,7 +15,7 @@ const SideBar = () => {
 
     const handleSignOut = (e: any) => {
         e.preventDefault();
-        signOut({ callbackUrl: `${process.env.NEXTAUTH_URL}/login`,  redirect:true  });
+        signOut({ callbackUrl: `https://main.dv8wts0d2rxdt.amplifyapp.com/login`,  redirect:true  });
     }
     
   return (
