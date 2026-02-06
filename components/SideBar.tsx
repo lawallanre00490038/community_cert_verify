@@ -15,7 +15,7 @@ const SideBar = () => {
 
     const handleSignOut = (e: any) => {
         e.preventDefault();
-        signOut({ callbackUrl: '/login',  redirect:true  });
+        signOut({ callbackUrl: `${process.env.NEXTAUTH_URL}/login`,  redirect:true  });
     }
     
   return (
